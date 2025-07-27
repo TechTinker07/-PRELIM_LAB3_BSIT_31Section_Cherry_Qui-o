@@ -1,0 +1,19 @@
+﻿@{
+    // Kinukuha yung list ng customers mula sa ViewBag
+    var CustomerList = ViewBag.CustomerList as List<PRELIM_LAB3_BSIT_31Section_Cherry_Quiño.Models.Customer>;
+    ViewData["Title"] = "Home Page";
+}
+<h2> Customer List </h2>
+<ul> 
+    @foreach (var customer in CustomerList)
+    {
+        if (customer is PRELIM_LAB3_BSIT_31Section_Cherry_Quiño.Models.VIPCustomer vip)
+        {
+            <li>@vip.GetDescription()</li>
+        }
+        else
+        {
+            <li>@customer.GetDescription()</li>
+        }
+    }
+</ul>
